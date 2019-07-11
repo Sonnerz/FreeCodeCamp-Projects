@@ -1,0 +1,113 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,400i,700");
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+
+body {
+  margin-top: 100px;
+  font-family: "Roboto"
+}
+
+#app-container {
+  margin: auto;
+  background-color: #666;
+  border: 1px solid #333;
+  width: 400px;
+  padding: 5px;
+}
+
+.calculator-keys {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 2px 2px;
+}
+
+#display,
+#displayFormula {
+  width: 100%;
+  height: 40px;
+  font-size: 1.3rem;
+  font-weight: 400;
+  background-color: #efefef;
+  padding: 4px;
+  text-align: right;
+  padding-right: 20px;
+  padding-left: 10px;
+  border-left: 1px solid #000;
+  border-right: 1px solid #000;
+  word-wrap: break-word;
+  white-space: normal;
+}
+
+#displayFormula {
+  border-radius: 3px 3px 0px 0px;
+  border-top: 1px solid #000;
+}
+
+#display {
+  border-radius: 0px 0px 3px 3px;
+  border-bottom: 1px solid #000;
+}
+
+
+.key-pad {
+  height: 70px;
+  background-color: #c5c5c5;
+  border-radius: 3px;
+  border: 1px solid #000;
+  color: #333;
+  font-weight: 700;
+  font-size: 1.2rem;
+  text-align: center;
+  line-height: 70px;
+  cursor: pointer;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .05), inset 0 1px 0 0 rgba(255, 255, 255, .45), inset 0 -1px 0 0 rgba(255, 255, 255, .15), 0 1px 0 0 rgba(255, 255, 255, .15);
+}
+
+.key-pad:hover {
+  background-color: #eaeaea;
+}
+
+.cancel-sign {
+  background-color: #f3eb9e;
+  color: #333;
+}
+
+.cancel-sign:hover {
+  background-color: #f7e544;
+  color: #333;
+}
+
+.clear-sign {
+  background-color: #f0595f;
+  color: #fff;
+}
+
+.clear-sign:hover {
+  background-color: #fd010a;
+  color: #fff;
+}
+
+.equal-sign {
+  background-color: #2e86c0;
+  color: #fff;
+  height: 100%;
+  line-height: 210px;
+  grid-row: 3 / 6;
+  grid-column: 4 / 5;
+}
+
+.equal-sign:hover {
+  background-color: #013c63;
+  color: #fff;
+}

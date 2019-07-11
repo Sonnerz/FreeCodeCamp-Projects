@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title> Build a Survey Form</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <h1 id="title">The Ultimate Survey</h1>
+  <p id="description">Complete the ultimate survey form</p>
+  <div id="main">
+    <form id="survey-form">
+      <div class="row">
+        <label id="name-label" for="name">Name:</label>
+        <input id="name" class="input-field" type="text" required placeholder="Enter you Name" />
+      </div>
+      <div class="row">
+        <label id="email-label" for="email">Email:</label>
+        <input id="email" class="input-field" type="email" required placeholder="Enter your email" />
+      </div>
+      <div class="row">
+        <label id="number-label" for="number">Age:</label>
+        <input id="number" class="input-field" type="number" required placeholder="Enter your age" min="10" max="100" />
+      </div>
+
+      <div class="row">
+        <label id="role-label" for="number">Role:</label>
+        <select name="role" id="dropdown" class="select-field">
+          <option value="Student">Student</option>
+          <option value="Full-time">Full-time employed</option>
+          <option value="Part-time">Part-time employed</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+      <div class="row">
+        <label id="gender-label">Gender:</label>
+        <input type="radio" name="gender" value="male" checked> Male<br>
+        <input type="radio" name="gender" value="female"> Female
+      </div>
+
+      <div class="row">
+        <label id="competence-label">Competence:</label>
+        <div class="competence-options">
+          <input type="checkbox" name="competence" value="html" class="checkbox">HTML
+          <input type="checkbox" name="competence" value="css" class="checkbox">CSS
+          <input type="checkbox" name="competence" value="javascript" class="checkbox">Javascript
+          <input type="checkbox" name="competence" value="jquery" class="checkbox">jQuery
+          <input type="checkbox" name="competence" value="python" class="checkbox">Python
+          <input type="checkbox" name="competence" value="c#" class="checkbox">C#
+          <input type="checkbox" name="competence" value="php" class="checkbox">PHP
+          <input type="checkbox" name="competence" value="wordpress" class="checkbox">Wordpress
+        </div>
+      </div>
+
+      <div class="row">
+        <label id="textarea-label">Comments:</label>
+        <textarea name="textarea" rows="10" cols="30"></textarea>
+      </div>
+
+      <div class="row center-contents">
+        <button id="submit">SUBMIT</button>
+      </div>
+    </form>
+  </div>
+  <script src='https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js'></script>
+</body>
+
+</html>

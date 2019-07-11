@@ -1,0 +1,128 @@
+body {
+  background-color: rgb(20, 36, 32);
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 100px;
+  margin: 0;
+}
+
+h1,
+h2,
+h3 {
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  color: rgb(224, 223, 223);
+}
+
+#title {
+  margin-top: 80px;
+  font-size: 1.8em;
+  color: #333;
+  color: rgb(224, 223, 223);
+}
+
+#description {
+  margin-top: 120px;
+  font-size: 1.2em;
+  color: rgb(177, 174, 174);
+  font-style: italic;
+}
+
+#nav {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  top: 0;
+  margin-top: 170px;
+  margin-bottom: 40px;
+}
+
+#nav a {
+  display: block;
+  height: 25px;
+  background: rgb(53, 36, 100);
+  padding: 5px;
+  text-align: center;
+  border-radius: 5px;
+  color: white;
+  font-weight: normal;
+  font-size: 0.8em;
+  text-decoration: none;
+  margin: 0 10px;
+  padding: 8px;
+  line-height: 25px;
+  border: 1px solid #666;
+}
+
+#nav a:hover {
+  background: rgb(102, 85, 151);
+  border: 1px solid #333;
+}
+
+#map {
+  margin-top: 120px;
+}
+
+#tooltip {
+  background-color: rgb(235, 235, 235);
+  border-radius: 10px;
+  width: 150px;
+  height: auto;
+  padding: 10px;
+
+  position: absolute;
+  box-sizing: border-box;
+  opacity: 0.9;
+}
+
+#tooltip.hidden {
+  display: none;
+}
+
+#tooltip p {
+  margin: 0;
+  font-size: 0.7em;
+  text-align: center;
+}
+
+#tooltip p span {
+  font-weight: 700;
+}
+
+#legend {
+  margin: 0 auto;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  background-color: transparent;
+  color: #fff;
+}
+
+.legend {
+  background-color: rgb(65, 71, 61);
+  border-radius: 30px;
+  color: #fff;
+}
+
+.legend-text {
+  font-size: 0.9em;
+  color: rgb(126, 122, 122);
+  font-weight: bold;
+}
+
+.text {
+  font-size: 0.65em;
+}

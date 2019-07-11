@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Technical Documentation Page</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <div id="top"></div>
+  <header class="page-title">Python Fundamentals Technical Document</header>
+  <footer class="footer">
+    <a href="#top">Back to top<svg width="24" height="24" viewBox="0 -3 24 24">
+        <path d="M13,20H11V8L5.5,13.5L4.08,12.08L12,4.16L19.92,12.08L18.5,13.5L13,8V20Z"></path>
+      </svg></a>
+  </footer>
+  <nav id="navbar">
+    <header>Python Fundamentals</header>
+    <ul>
+      <li><a href="#The_Flow_Of_Execution" class="nav-link">The Flow Of Execution</a></li>
+      <li><a href="#Conventions_For_Declaring_Variables" class="nav-link">Conventions For Declaring Variables</a></li>
+      <li><a href="#Types_Of_Numbers" class="nav-link">Types Of Numbers</a></li>
+      <li><a href="#Range" class="nav-link">Range</a></li>
+      <li><a href="#For_Loops" class="nav-link">For Loops</a></li>
+      <li><a href="#Modules" class="nav-link">Modules</a></li>
+      <li><a href="#Functions" class="nav-link">Functions</a></li>
+    </ul>
+  </nav>
+  <main id="main-doc">
+    <section class="main-section" id="The_Flow_Of_Execution">
+      <header>The Flow Of Execution</header>
+      <p>'If statements' revolve around whether or not something equates to true. Here we use the if keyword, followed
+        by my_variable, which in this case is a bool, with the value of True. The boolean is called the condition and is
+        what makes up an if statement. After the if statement we have a print() function that we use to print out the
+        value of my_variable.</p>
+      <p>Four blank spaces indent this code. The indented code is called a code block. We indent this part of the code
+        to inform Python that we don’t always want to execute this code. Before we want to indent a piece of code, we
+        need to use the colon delimiter (:).</p>
+      <code>(5 – 3 * 1 + 1) * (6 * 1 – 5) = 3 </code>
+      <p>The colon informs Python that the next line of code will be part of a code block. Because our variable contains
+        a value of True, our condition will evaluate to true. Anything contained within the if statement will be
+        executed, meaning that the variable will be printed. Try changing the value of my_variable to False and see what
+        happens!</p>
+    </section>
+    <section class="main-section" id="Conventions_For_Declaring_Variables">
+      <header>Conventions For Declaring Variables</header>
+      <p>Any of these are acceptable. However, Python comes with it’s standard for writing readable code called PEP8
+        (https://www.python.org/dev/peps/pep-0008/).</p>
+      <code>first_number = 10</code><br />
+      <code>second_number = 5</code>
+      <p>This standard only acts as guidelines for how code should be written to make all code as readable to all Python
+        developers.</p>
+      <p>PEP8 recommends using lowercase variable names and any variable names that contain spaces should use
+        underscores as spaces.</p>
+    </section>
+    <section class="main-section" id="Types_Of_Numbers">
+      <header>Types Of Numbers</header>
+      <p>In Python, there are two different types of numbers that we work with on a regular basis. Up until now, we’ve
+        mostly been looking at whole numbers. In mathematical terms, these numbers are usually integers. In computer
+        programming, however, an integer is called an int for short. The other type of numbers that Python offers is a
+        floating point number, or float for short. A float is a number that is followed by a decimal point. For example,
+        a float might look like 12.74 whereas an int might be just12 or 13, depending on whether you choose to round up
+        or not!</p>
+      <p>The reason that we need to differentiate between the two different types of numbers is so that Python can
+        inform the computer of how much memory will need to be allocated to store that value because ints require more
+        memory than floats. Thankfully Python will mostly work within the confines of these two types of numbers; unlike
+        other languages such as Java or C#, which have small ints, long ints, doubles and many more</p>
+      <p>We don’t need to do this in Python. The reason for this is that Python is what we call a dynamically typed
+        language. Therefore we don’t have to specify the type because Python will make that determination for us at
+        runtime (while the program is running), meaning that we can focus on writing code instead of making sure we get
+        all of our types correct! This is often referred to as duck-typing.
+        The philosophy here is: If it quacks, treat it as duck, otherwise, handle it differently. For example, if we
+        have a variable that contains a number that doesn’t have a decimal point, treat it as an int; otherwise, if it
+        does have a decimal point, treat it as a float. A language that requires us to specify the type of variable that
+        we wish to declare is called a statically typed language. Java and C# are examples of this, but we’re not going
+        to cover those here.</p>
+    </section>
+    <section class="main-section" id="Range">
+      <header>Range</header>
+      <p>Instead of just starting from 0, we can use additional arguments to achieve various sequence combinations. We
+        know this by looking at the Python documentation for range() -
+        https://docs.python.org/3/library/stdtypes.html#range. Looking at the documentation is a great way of finding
+        out more information about the functions that Python provides.</p>
+      <code>print('Then Mike said "what is that?"')</code>
+      <p>range() can take up to three arguments, which are:</p>
+      <code>my_string = "HELLO WORLD"</code><br />
+      <code>my_string_lower_case = my_string.lower()</code><br />
+      <code>print(my_string_lower_case)</code>
+      <ul>
+        <li>Start - This is the first argument that range() accepts. It is an optional argument and will be given a
+          default value of 0.
+        </li>
+        <li>Stop - This is the second argument. It is the number at which to stop our sequence. In order for range() to
+          work, we need to provide a stop argument.</li>
+        <li>Step - This is the last argument that range() takes. It is also an optional argument. If we don’t provide
+          one, Python will default to 1.</li>
+      </ul>
+      <p>In the last example, we only supplied one argument. Given that the start and step arguments are optional, the
+        argument that we provided was the stop argument. This indicates that we want a sequence comprised of 5 numbers.
+      </p>
+    </section>
+    <section class="main-section" id="For_Loops">
+      <header>For Loops</header>
+      <p>For loops allow us to iterate over a predefined set of data. Unlike a while loop, which will run so long as
+        some condition is true, for loops focus on iterating over collections of data and will perform a task for each
+        item in a given collection. Before we get into the nitty-gritty of working with collections and for loops, we’ll
+        take a look at the anatomy of a for loop and the range() function.</p>
+      <code>
+      for item in range(5):</code><br />
+      <code>print(item)</code>
+      <p>For loops allow us to iterate over a sequence of data</p>
+      <p>The range function will generate a sequence of numbers.
+        By passing through an argument of 5, we’re saying that we wish for that sequence to be comprised of 5 <numbers
+          class=""></numbers>
+      </p>
+      <p>Most programming languages, including Python, are zero-based. Therefore they start counting at 0 instead of 1.
+      </p>
+      <p>When we use the range function to generate a sequence of 5 numbers, it will create a series ranging from 0-4.
+        Those numbers are 0, 1, 2, 3 and 4. We use the for loop to iterate each of the numbers in this sequence. </p>
+      <p>The way in which we build up a for loop is by first using the for keyword.
+        After the for keyword we have item. item is a variable name. This variable will act as a placeholder. </p>
+      <p>After item, we have in. It just tells Python what sequence of data we wish to iterate over.
+        For each iteration of the for loop, Python will get the next item from the series and store it in the item
+        variable so we can use it inside the for loop.
+        Then inside the for loop we simply print out each item of the sequence, starting at 0 and working up to 4.</p>
+      <code>for key, value in all_users_dict.items():
+      do stuff</code>
+    </section>
+    <section class="main-section" id="Modules">
+      <header>Modules</header>
+      <ul>
+        <li>Allow us to use more functions built into the Python language</li>
+        <li>We don’t always need to reinvent the wheel, as Python comes with a plethora of modules that each contain a
+          lot of functions that we can use</li>
+      </ul>
+      <p>In Python, we call a Python file a module.
+        Python comes with a plethora of modules, but as a developer, we also create modules every time we create our
+        files. We can even import functions, classes, and variables from other modules. One example of one of Python’s
+        built-in modules is random
+        An example of how we can import the randint function from the random module:</p>
+    </section>
+    <section class="main-section" id="Functions">
+      <header>Functions</header>
+      <p><strong>def:</strong> This is the keyword that we use to tell Python that we are creating a function
+        definition.
+        print_message: This is the name that we’ve decided to give our function. Be sure to give your functions
+        meaningful names so that when other people try to use your code, they’ll able to make sense of what the function
+        does without having to read the code in the function.</p>
+      <p>(): The parentheses denote the parameters that a function takes. In this example, we don’t have any parameters
+        yet, but we’ll start adding some in soon.</p>
+      <code>
+    def print_message():<br />
+    <code>print("Hello World")<br /></code>
+
+      <code>print_message()    </code>
+      </code>
+    </section>
+  </main>
+  <script src='https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js'></script>
+</body>
+
+</html>

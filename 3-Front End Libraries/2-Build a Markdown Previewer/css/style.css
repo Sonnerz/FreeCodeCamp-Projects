@@ -1,0 +1,99 @@
+@import url("https://fonts.googleapis.com/css?family=Lato:400,400i,700");
+body {
+  background-color: #fff;
+  font-family: Lato, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+body .page-title {
+  box-sizing: border-box;
+  background-color: #022b3a;
+  padding: 15px;
+  color: #e1e5f2;
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+#app-container {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.component-div {
+  min-width: 85%;
+  height: 650px;
+  margin: 50px 0px;
+}
+.component-div .component-title {
+  box-sizing: border-box;
+  background-color: #1f7a8c;
+  padding: 10px;
+  padding-left: 30px;
+  color: #e1e5f2;
+  font-size: 1.8rem;
+  margin: 0;
+  border-radius: 25px 25px 2px 2px;
+}
+
+.toolbar {
+  padding: 10px;
+  background-color: #bfdbf7;
+  margin: 0;
+  text-align: center;
+  display: flex;
+  justify-content: space-evenly;
+  align-content: center;
+  flex-wrap: wrap;
+}
+.toolbar .btn-secondary {
+  margin: 0 5px 5px 0;
+}
+.toolbar .button-container {
+  width: 80%;
+}
+
+#editor,
+#preview {
+  box-sizing: border-box;
+  height: 600px;
+  max-width: 100%;
+  min-width: 100%;
+  resize: none;
+  overflow: scroll;
+  padding: 15px 50px;
+  border: 1px solid #1f7a8c;
+}
+
+#editor {
+  background-color: #333;
+  color: #fff;
+}
+
+#editor:focus {
+  outline: 0;
+}
+
+#preview {
+  background-color: #e1e5f2;
+  color: #333;
+}
+
+.footer {
+  padding: 20px;
+  background-color: #022b3a;
+  color: #e1e5f2;
+  margin: 0;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 400;
+  margin-top: 5%;
+  position: bottom;
+}
+
+@media (min-width: 1300px) {
+  .component-div {
+    min-width: 45%;
+  }
+}

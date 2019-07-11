@@ -1,0 +1,98 @@
+@import url("https://fonts.googleapis.com/css?family=Lato:400,400i,700");
+$white: #fff;
+$barely-black: #333;
+$blue: #022b3a;
+$seaweed: #1f7a8c;
+$aqua: #bfdbf7;
+$azure: #e1e5f2;
+
+body {
+	background-color: $white;
+	font-family: Lato, sans-serif;
+	margin: 0;
+	padding: 0;
+	.page-title {
+		box-sizing: border-box;
+		background-color: $blue;
+		padding: 15px;
+		color: $azure;
+		text-align: center;
+		font-size: 3rem;
+		font-weight: 700;
+	}
+}
+#app-container {
+	display: flex;
+	justify-content: space-evenly;
+	flex-wrap: wrap;
+}
+.component-div {
+	min-width: 85%;
+	height: 650px;
+	margin: 50px 0px;
+	.component-title {
+		box-sizing: border-box;
+		background-color: $seaweed;
+		padding: 10px;
+		padding-left: 30px;
+		color: $azure;
+		font-size: 1.8rem;
+		margin: 0;
+		border-radius: 25px 25px 2px 2px;
+	}
+}
+.toolbar {
+	padding: 10px;
+	background-color: $aqua;
+	margin: 0;
+	text-align: center;
+	display: flex;
+	justify-content: space-evenly;
+	align-content: center;
+	flex-wrap: wrap;
+	.btn-secondary {
+		margin: 0 5px 5px 0;
+	}
+	.button-container {
+		width: 80%;
+	}
+}
+#editor,
+#preview {
+	box-sizing: border-box;
+	height: 600px;
+	max-width: 100%;
+	min-width: 100%;
+	resize: none;
+	overflow: scroll;
+	padding: 15px 50px;
+	border: 1px solid $seaweed;
+}
+#editor {
+	background-color: $barely-black;
+	color: #fff;
+}
+#editor:focus {
+		outline: 0;
+	}
+#preview {
+	background-color: $azure;
+	color: #333;
+}
+.footer {
+	padding: 20px;
+	background-color: $blue;
+	color: $azure;
+	margin: 0;
+	text-align: center;
+	font-size: 1.2rem;
+	font-weight: 400;
+	margin-top: 5%;
+	position: bottom;
+}
+
+@media (min-width: 1300px) {
+	.component-div {
+		min-width: 45%;
+	}
+}

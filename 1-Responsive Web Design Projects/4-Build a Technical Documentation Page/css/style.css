@@ -1,0 +1,131 @@
+html,
+body {
+  font-family: "Opens Sans", sans-serif;
+  font-size: 1rem;
+  padding: 0;
+  margin: 0;
+}
+.page-title {
+  position: fixed;
+  top:0;
+  width: 100%;
+  height: 85px;
+  padding: 25px 80px;
+  background-color: #004D40;
+  border-bottom: 1px dashed #004d40;
+  font-size: 1.7rem;
+  font-weight: 400;
+  color: #fff;
+  box-sizing: border-box;
+  z-index:999;
+}
+main {
+  position: absolute;
+  margin-left: 315px;
+  padding: 110px 20px 20px 20px;
+  top: 0;
+  padding-bottom: 100px;
+}
+:target::before {
+  content: "";
+  display: block;
+  height: 110px; /* fixed header height*/
+  margin: -110px 0 0; 
+}
+main header {
+  font-size: 1.6rem;
+  font-weight: 400;
+  padding-top: 30px;
+}
+#navbar {
+  position: fixed;
+  min-width: 200px;
+  top: 85px;
+  left: 0px;
+  width: 300px;
+  max-height: 100%;
+  height: 100%;
+  border-right: 1px dashed #999;
+  -webkit-box-shadow: 2px 5px 18px -1px rgba(153, 153, 153, 1);
+  -moz-box-shadow: 2px 5px 18px -1px rgba(153, 153, 153, 1);
+  box-shadow: 2px 5px 18px -1px rgba(153, 153, 153, 1);
+}
+#navbar header {
+  font-size: 1.6rem;
+  font-weight: 400;
+  margin: 20px 0;
+  padding-bottom: 25px;
+  text-align: center;
+  border-bottom: 1px dashed #999;
+}
+#navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+#navbar ul li {
+  padding: 20px 20px 20px 50px;
+}
+#navbar ul li:hover {
+  background-color: #f0f4c3;
+  color: #004d40;
+  text-decoration: none;
+}
+.nav-link {
+  text-decoration: none;
+  color: #000;
+  font-weight: 700;
+}
+.footer {
+  background-color: #004D40;
+  height: 50px;
+  width: 100%;
+  color: #fff;
+  padding: 8px 50px;
+  font-size: 1.2em;
+  text-align: right;
+  box-sizing: border-box;
+  position: fixed;
+  bottom: 0;
+  z-index: 999;
+}
+footer svg {
+  fill: #fff;
+}
+footer a {
+  color: #fff;
+  text-decoration: none;
+}
+section p, .main-section code{
+  padding: 0 30px;
+}
+section li {
+  margin-left: 7px;
+}
+@media (max-width: 576px) {
+  #navbar {
+    position: absolute;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    max-height: 520px;
+    height: 100%;
+  }
+  #navbar ul {
+    margin-bottom: 10px;
+  }
+  #navbar ul li {
+    margin: 0;
+  }
+  #main-doc {
+    position: relative;
+    width: 100%;
+    margin-left: 0px;
+    margin-top: 500px;
+  }
+  .page-title {
+    position:fixed;
+    top:0;
+    font-size: 1.3em;
+  }
+}
