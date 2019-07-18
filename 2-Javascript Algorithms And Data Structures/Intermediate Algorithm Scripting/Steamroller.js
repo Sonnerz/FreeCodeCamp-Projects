@@ -1,3 +1,7 @@
+/*
+Flatten a nested array. You must account for varying levels of nesting.
+*/
+
 function steamrollArray(arr) {
   debugger;
   return arr.reduce(function (acc, item) {

@@ -3,11 +3,13 @@ resources
 .vscode
 babel
 source
-package.json
+package-lock.json
 d3.min.js
 project_test
 samples
 project_1datasource
+node_modules
+.env
 2-Javascript Algorithms And Data Structures/Intermediate Algorithm Scripting/index.html
 2-Javascript Algorithms And Data Structures/JavaScript Algorithms and Data Structures Projects/index.html
 2-Javascript Algorithms And Data Structures/Intermediate Algorithm Scripting/test.js
