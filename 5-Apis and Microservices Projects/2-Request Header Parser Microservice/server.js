@@ -19,25 +19,17 @@ app.get("/", function (req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
 
-
 // your first API endpoint... 
 app.get("/api/hello", function (req, res) {
   res.json({ greeting: 'hello API' });
 });
-
-// app.get('/api/whoami', function (req, res, next) {
-//   res.json({ greeting: 'hello API' });
-//   res.json({ Type: req.ip });
-//   console.log('Request Type:', req.method);
-//   next()
-// });
 
 app.get('/api/whoami', function (req, res) {
   //console.log('Request Type:', req.headers)
   const software = req.headers["user-agent"];
   const language = req.headers["accept-language"];
   const ipaddress = req.header("X-Forwarded-For").split(",");
-  console.log(ipaddress);
+  //console.log(ipaddress);
   res.json({
     "ipaddress": ipaddress[0],
     "language": language,
