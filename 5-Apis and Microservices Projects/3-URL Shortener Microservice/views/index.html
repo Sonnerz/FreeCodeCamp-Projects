@@ -3,8 +3,8 @@
 <html>
 
 <head>
-  <title>Timestamp Microservice</title>
-  <link rel="shortcut icon" href="/public/favicon.ico" type="image/x-icon" />
+  <title>URL Shortener Microservice</title>
+  <link rel="shortcut icon" href="public/favicon.ico" type="image/x-icon" />
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
   <link href="/public/style.css" rel="stylesheet" type="text/css">
   <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
@@ -35,28 +35,20 @@
         </ul>
       </div>
     </section>
+    <h1>URL Shortener Microservice</h1>
 
-    <h1>Timestamp Microservice</h1>
-    <div class="content">
-      <p> This microservice will accept a date in the following format:</p>
-      <p> "2015-12-15" or a Unix Timestamp format,
-        "1450137600000".</p>
+    <h2>Create a Short URL </h2>
 
-      <p class="double-sp">The service will output the date in a UNIX or UTC json format.</p>
-
-      <p><code>{"unix":1451001600000, "utc":"Fri, 25 Dec 2015 00:00:00 GMT"}</code></p>
-      <h3>Examples:</h3>
-      <p><a href="https://vagabond-teeth.glitch.me/api/timestamp/2015-12-15" target="blank"
-          title="utc">https://vagabond-teeth.glitch.me/api/timestamp/2015-12-15</a>
-      </p>
-      <p><a href="https://vagabond-teeth.glitch.me/api/timestamp/1450137600000" target="blank"
-          title="unix timestamp">https://vagabond-teeth.glitch.me/api/timestamp/1450137600000</a>
-      </p>
-
-
-    </div>
+    <form action="api/shorturl/new" method="POST">
+      <label for="url_input">Enter a URL to be shortened</label>
+      <input id="url_input" type="text" name="url" value="https://www.freecodecamp.org">
+      <input type="submit" value="SUBMIT URL">
+    </form>
+    <h3>Example:</h3>
+    <a href="https://mirage-beat.glitch.me/api/shorturl/2">https://mirage-beat.glitch.me/api/shorturl/2</a> will
+    redirect to http://www.youtube.com
   </div>
-
 </body>
+
 
 </html>

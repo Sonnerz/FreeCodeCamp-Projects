@@ -5,7 +5,8 @@ require('dotenv').config()
 //app.get('/', (req, res) => res.send('Hello World!'))
 
 // http://expressjs.com/en/starter/static-files.html
-app.use(express.static('public'));
+//app.use(express.static('public'));
+app.use('/public', express.static(process.cwd() + '/public'));
 
 // http://expressjs.com/en/starter/basic-routing.html
 app.get("/", function (req, res) {
@@ -35,18 +36,6 @@ app.get('/api/timestamp/:date_string?', function (req, res) {
   } else {
     res.json({ "error": "Invalid Date" })
   }
-
-
-
-  //TERNARY OPTION  a ? b : (c ? d : e)
-
-  // isNaN(paramDate)
-  //   ? res.send({ "unix": new Date(paramDate).getTime(), "utc": new Date(paramDate).toUTCString() })
-  //   : (!isNaN(paramDate)
-  //     ? res.send({ "unix": paramDate, "utc": new Date(paramDate * 1000).toUTCString() })
-  //     : res.send({ "error": "Invalid Date" })
-  //   )
-
 })
 
 

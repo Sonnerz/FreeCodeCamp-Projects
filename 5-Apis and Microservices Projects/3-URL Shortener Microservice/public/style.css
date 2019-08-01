@@ -55,17 +55,9 @@ h2 {
   font-style: italic;
 }
 
-.content,
-blockquote {
-  width: 60%;
-  margin: 50px auto;
+.footer {
+  margin-top: 40px;
 }
-
-.content ul {
-  text-align: left;
-  list-style-type: disc;
-}
-
 
 
 ul {
@@ -76,10 +68,43 @@ li {
   margin-bottom: 0.5em;
 }
 
+
 a {
   color: rgb(39, 37, 126);
 }
 
 a:visited {
   color: rgb(28, 80, 94);
+}
+
+form {
+  border: solid 1px #222;
+  border-radius: 15px;
+  margin: 10px auto;
+  padding: 20px;
+  max-width: 600px;
+  background-color: aliceblue;
+}
+
+label {
+  margin-right: 10px;
+}
+
+input {
+  padding: 10px;
+}
+
+input[type=text] {
+  width: 220px;
+  text-align: left;
+  border-radius: 5px;
+}
+
+input[type=submit] {
+  border-radius: 5px;
+  text-align: center;
+  font-weight: 700;
+  background-color: rgb(78, 123, 126);
+  color: #f0f1e9;
+
 }
