@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <title>Exercise Tracker | Free Code Camp</title>
+   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
+   <link href="style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+   <div class="container">
+      <h1>Exercise Tracker</h1>
+      <div class="formContainer">
+         <form action="/api/exercise/new-user" method="post">
+            <h3>Create a New User</h3>
+            <input id="uname" type="text" name="username" placeholder="Username">
+            <input type="submit" value="Submit">
+         </form>
+         <form action="/api/exercise/add" method="post">
+            <h3>Add Exercises</h3>
+            <input id="uid" type="text" name="userId" placeholder="UserId*">
+            <input id="desc" type="text" name="description" placeholder="Description*">
+            <input id="dur" type="text" name="duration" placeholder="Duration* (mins.)">
+            <input id="dat" type="text" name="date" placeholder="Date (yyyy-mm-dd)">
+            <input type="submit" value="Submit">
+         </form>
+      </div>
+      <p><strong>To view your exercise log:</strong>
+         <p>/api/exercise/log?{userId}[&amp;from][&amp;to][&amp;limit]</p>
+         <p><strong>{ }</strong> = required, <strong>[ ]</strong> = optional</p>
+         <p><strong>from, to</strong> = dates (yyyy-mm-dd); <strong>limit</strong> = number</p>
+   </div>
+</body>
+
+</html>
