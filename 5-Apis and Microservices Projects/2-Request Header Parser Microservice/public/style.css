@@ -1,4 +1,7 @@
 /****** Main Styling ******/
+* {
+  box-sizing: border-box;
+}
 
 body {
   font-family: 'Roboto', sans-serif;
@@ -33,12 +36,12 @@ body {
 }
 
 .social-list li a {
-  font-size: 24px;
   margin-right: 25px;
 }
 
 i {
   color: #f0f1e9;
+  font-size: 2em !important;
 }
 
 i:hover {
@@ -49,6 +52,7 @@ h1,
 h2,
 h3 {
   margin-top: 50px;
+  line-height: 1em;
 }
 
 h2 {
@@ -57,16 +61,18 @@ h2 {
 
 .content,
 blockquote {
-  width: 60%;
+  width: 85%;
   margin: 50px auto;
+}
+
+code {
+  word-wrap: break-word;
 }
 
 .content ul {
   text-align: left;
   list-style-type: disc;
 }
-
-
 
 ul {
   list-style-type: none;
@@ -82,4 +88,13 @@ a {
 
 a:visited {
   color: rgb(28, 80, 94);
+}
+
+@media (min-width: 576px) {
+
+  .content,
+  blockquote {
+    width: 60%;
+
+  }
 }

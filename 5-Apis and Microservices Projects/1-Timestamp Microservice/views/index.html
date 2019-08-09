@@ -4,6 +4,8 @@
 
 <head>
   <title>Timestamp Microservice</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="shortcut icon" href="/public/favicon.ico" type="image/x-icon" />
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
   <link href="/public/style.css" rel="stylesheet" type="text/css">
@@ -12,30 +14,29 @@
 </head>
 
 <body>
+  <section class="container-social">
+    <div class="text-right">
+      <ul class="social-list">
+        <li>
+          <a href="https://www.linkedin.com/in/sonyacooley/" title="linkedin" target="blank"><i
+              class="fa fa-linkedin fa-2x"></i></a>
+        </li>
+        <li>
+          <a href="https://github.com/Sonnerz" title="github" target="blank"><i
+              class="fa fa-github-square fa-2x"></i></a>
+        </li>
+        <li>
+          <a href="https://www.freecodecamp.org/sonnerz" title="free code camp" target="blank"><i
+              class="fa fa-free-code-camp fa-2x"></i></a>
+        </li>
+        <li>
+          <a class="nav-link text-light" href="mailto:sonya.cooley@mail.com" target="_blank" title="email me"><i
+              class="fa fa-envelope-square fa-2x"></i></a>
+        </li>
+      </ul>
+    </div>
+  </section>
   <div class="container">
-    <section class="container-social">
-      <div class="text-right">
-        <ul class="social-list">
-          <li>
-            <a href="https://www.linkedin.com/in/sonyacooley/" title="linkedin" target="blank"><i
-                class="fa fa-linkedin fa-2x"></i></a>
-          </li>
-          <li>
-            <a href="https://github.com/Sonnerz" title="github" target="blank"><i
-                class="fa fa-github-square fa-2x"></i></a>
-          </li>
-          <li>
-            <a href="https://www.freecodecamp.org/sonnerz" title="free code camp" target="blank"><i
-                class="fa fa-free-code-camp fa-2x"></i></a>
-          </li>
-          <li>
-            <a class="nav-link text-light" href="mailto:sonya.cooley@mail.com" target="_blank" title="email me"><i
-                class="fa fa-envelope-square fa-2x"></i></a>
-          </li>
-        </ul>
-      </div>
-    </section>
-
     <h1>Timestamp Microservice</h1>
     <div class="content">
       <p> This microservice will accept a date in the following format:</p>
@@ -44,7 +45,9 @@
 
       <p class="double-sp">The service will output the date in a UNIX or UTC json format.</p>
 
+
       <p><code>{"unix":1451001600000, "utc":"Fri, 25 Dec 2015 00:00:00 GMT"}</code></p>
+
       <h3>Examples:</h3>
       <p><a href="https://vagabond-teeth.glitch.me/api/timestamp/2015-12-15" target="blank"
           title="utc">https://vagabond-teeth.glitch.me/api/timestamp/2015-12-15</a>
@@ -52,8 +55,6 @@
       <p><a href="https://vagabond-teeth.glitch.me/api/timestamp/1450137600000" target="blank"
           title="unix timestamp">https://vagabond-teeth.glitch.me/api/timestamp/1450137600000</a>
       </p>
-
-
     </div>
   </div>
 

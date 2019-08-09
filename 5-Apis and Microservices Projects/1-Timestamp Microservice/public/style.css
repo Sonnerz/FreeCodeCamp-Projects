@@ -1,5 +1,6 @@
 /****** Main Styling ******/
 
+
 body {
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
@@ -33,7 +34,6 @@ body {
 }
 
 .social-list li a {
-  font-size: 24px;
   margin-right: 25px;
 }
 
@@ -49,37 +49,39 @@ h1,
 h2,
 h3 {
   margin-top: 50px;
+  line-height: 1em;
 }
 
 h2 {
   font-style: italic;
 }
 
-.content {
-  width: 60%;
-  margin: 60px auto;
+.container {
+  box-sizing: border-box;
 }
 
-.content ul {
-  text-align: center;
+.content {
+  width: 80%;
+  margin: 60px auto;
+  box-sizing: border-box;
 }
 
 .double-sp {
   padding-top: 25px;
 }
 
-ul {
-  list-style-type: none;
-}
-
-li {
-  margin-bottom: 0.5em;
-}
-
 a {
   color: rgb(39, 37, 126);
+  word-wrap: break-word;
 }
 
 a:visited {
   color: rgb(28, 80, 94);
+}
+
+@media (min-width: 576px) {
+  .content {
+    width: 60%;
+    min-width: 60%;
+  }
 }

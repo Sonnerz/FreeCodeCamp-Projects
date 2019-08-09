@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>File Metadata</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
+  <link href="style.css" rel="stylesheet" type="text/css">
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+    type="text/css">
+</head>
+
+<body>
+  <section class="container-social">
+    <div class="text-right">
+      <ul class="social-list">
+        <li>
+          <a href="https://www.linkedin.com/in/sonyacooley/" title="linkedin" target="blank"><i
+              class="fa fa-linkedin"></i></a>
+        </li>
+        <li>
+          <a href="https://github.com/Sonnerz" title="github" target="blank"><i class="fa fa-github-square"></i></a>
+        </li>
+        <li>
+          <a href="https://www.freecodecamp.org/sonnerz" title="free code camp" target="blank"><i
+              class="fa fa-free-code-camp"></i></a>
+        </li>
+        <li>
+          <a class="nav-link text-light" href="mailto:sonya.cooley@mail.com" target="_blank" title="email me"><i
+              class="fa fa-envelope-square"></i></a>
+        </li>
+      </ul>
+    </div>
+  </section>
+  <div class="container">
+
+    <h1>File Metadata Microservice</h1>
+
+    <p>Please Upload a file to retrieve its metadata: file size and file type</p>
+
+    <div class="view">
+      <form enctype="multipart/form-data" method="POST" action="/api/fileanalyse">
+        <input id="inputfield" type="file" name="upfile">
+        <input id="button" type="submit" value="Upload File">
+      </form>
+    </div>
+  </div>
+</body>
+
+</html>

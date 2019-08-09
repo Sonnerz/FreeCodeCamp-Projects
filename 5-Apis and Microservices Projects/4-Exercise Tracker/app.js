@@ -39,7 +39,7 @@ app.get('/api/exercise/users', function (req, res) {
       }
       res.json(userList)
     } else {
-      res.send("there are no users");
+      res.send("There are no users registered");
     }
   });
 });
@@ -52,7 +52,7 @@ app.post('/api/exercise/new-user', async function (req, res) {
     const doc = await checkUsername(inputUsername);
     //if username already exists
     if (doc) {
-      res.send("username already taken");
+      res.send("That Username is already taken");
     } else {
       // create new user
       const new_user = new UserModel({
@@ -67,7 +67,7 @@ app.post('/api/exercise/new-user', async function (req, res) {
       });
     }
   } else {
-    res.json({ "error": "missing username" });
+    res.json({ "Error": "username is required" });
   }
 });
 
@@ -83,7 +83,7 @@ app.post('/api/exercise/add', async function (req, res) {
     UserModel.findById({ "_id": inputUserId }, function (err, doc) {
       // userid not in database
       if (!doc) {
-        res.json({ "error": "userid does not exist" });
+        res.json({ "Error": "That userid does not exist" });
         // userid in database
       } else {
         // add new exercise to Log array
@@ -122,17 +122,17 @@ app.route('/api/exercise/log').get(function (req, res, next) {
   const limit = req.query.limit;
 
   if (!userid) {
-    res.json({ "error": "userid is required" });
+    res.json({ "Error": "A userId is required" });
   } else {
     UserModel.findOne({ "_id": userid }, function (err, user) {
       if (err) return next(err);
       // if userid not in database
       if (!user) {
-        next({ "message": "user id does NOT EXIST" });
+        next({ "Message": "That userId does not exist" });
       } else {
         // if user has no logs
         if (user.count == 0) {
-          next({ "message": "User has no logs" });
+          next({ "Message": "This user has no exercise logs" });
         } else {
           let exerciseLogs = user.log;
           exerciseLogs = exerciseLogs
@@ -173,7 +173,7 @@ const checkUsername = function (name) {
 
 // Not found middleware
 app.use((req, res, next) => {
-  return next({ status: 404, message: 'not found' })
+  return next({ status: 404, message: 'Not Found' })
 })
 
 // Error Handling middleware

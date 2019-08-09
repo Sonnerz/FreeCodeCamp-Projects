@@ -36,3 +36,6 @@ Request Header Parser Microservice - https://valley-lasagna.glitch.me
 URL Shortener Microservice - https://mirage-beat.glitch.me
 
 Exercise Tracker REST API Microservice - https://sour-forgery.glitch.me
+
+
+File Metadata Microservice - https://fortune-heat.glitch.me

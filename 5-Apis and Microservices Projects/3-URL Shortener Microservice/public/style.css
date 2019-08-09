@@ -33,12 +33,12 @@ body {
 }
 
 .social-list li a {
-  font-size: 24px;
   margin-right: 25px;
 }
 
 i {
   color: #f0f1e9;
+  font-size: 2em !important;
 }
 
 i:hover {
@@ -49,6 +49,7 @@ h1,
 h2,
 h3 {
   margin-top: 50px;
+  line-height: 1em;
 }
 
 h2 {
@@ -84,6 +85,7 @@ form {
   padding: 20px;
   max-width: 600px;
   background-color: aliceblue;
+  width: 80%;
 }
 
 label {
@@ -106,5 +108,5 @@ input[type=submit] {
   font-weight: 700;
   background-color: rgb(78, 123, 126);
   color: #f0f1e9;
-
+  margin-top: 10px;
 }
