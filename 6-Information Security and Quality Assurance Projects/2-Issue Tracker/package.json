@@ -1,7 +1,7 @@
 {
-  "name": "1-metric-imperial-converter",
+  "name": "2-issue-tracker",
   "version": "1.0.0",
-  "description": "FreeCodeCamp - Metric/Imperial Converter",
+  "description": "FreeCodeCamp - Issue Tracker",
   "main": "server.js",
   "scripts": {
     "dev": "nodemon app.js",
@@ -13,14 +13,15 @@
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
-    "helmet": "^3.20.0",
-    "zombie": "^6.1.4"
+    "helmet": "^3.21.0",
+    "mongodb": "^3.3.2",
+    "mongoose": "^5.7.0"
   },
   "devDependencies": {
-    "dotenv": "^8.1.0",
-    "nodemon": "^1.19.1",
     "chai": "^4.2.0",
     "chai-http": "^4.3.0",
-    "mocha": "^6.2.0"
+    "dotenv": "^8.1.0",
+    "mocha": "^6.2.0",
+    "nodemon": "^1.19.2"
   }
 }

@@ -14,3 +14,5 @@ node_modules
 2-Javascript Algorithms And Data Structures/Intermediate Algorithm Scripting/index.html
 2-Javascript Algorithms And Data Structures/JavaScript Algorithms and Data Structures Projects/index.html
 2-Javascript Algorithms And Data Structures/Intermediate Algorithm Scripting/test.js
+*.txt
+coverage
