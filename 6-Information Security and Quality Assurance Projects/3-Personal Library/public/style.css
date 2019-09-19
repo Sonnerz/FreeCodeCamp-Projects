@@ -1,0 +1,194 @@
+/****** Main Styling ******/
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Galada&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  color: #111;
+  background-color: rgb(107, 118, 139);
+  line-height: 1.4em;
+  padding: 0;
+  margin: 0;
+}
+
+/* SOCIAL LINKS START ---------------------------- */
+.container-social {
+  background-color: #333;
+  width: 100%;
+  padding: 5px 30px 5px 0px;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.social-list li {
+  transition: 0.2s linear;
+  -webkit-transition: 0.2s linear;
+  -moz-transition: 0.2s linear;
+  opacity: 1.0;
+  display: inline-block;
+  margin: 0;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.social-list li a {
+  margin-right: 25px;
+}
+
+.social-list li a i {
+  color: #f0f1e9;
+  font-size: 2em !important;
+}
+
+.social-list li a i:hover {
+  color: #ffdc00;
+}
+/* SOCIAL LINKS END ------------------------------ */
+
+
+
+.view {
+  position: relative;
+  width: 100%;
+  padding: 0 20px;
+}
+
+.container {
+  width: 100%;
+  background: url('https://cdn.glitch.com/325ee00f-5e88-4f68-8e35-4225066332e2%2Fsharon-mccutcheon-eMP4sYPJ9x0-unsplash.jpg?v=1568746694271') no-repeat center center fixed;
+  height: 100vh;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  margin:0;
+  opacity: 0.8;
+  padding: 0 20px;
+  text-align: center;
+  overflow-x: scroll;
+}
+
+.opaque-overlay {
+    position: absolute;
+    top:74;
+    left: 0;
+    height:100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: -1;
+}
+
+h1 {
+  font-size: 3em;
+  margin:0;
+  padding-top: 50px;
+  font-family: 'Galada', cursive;
+  line-height: 0.9em;
+}
+
+p {
+  margin: 20px 10px;;
+}
+
+code {
+  word-wrap: break-word;
+}
+
+input {
+  display:block;
+  margin-bottom: 10px;
+  padding: 10px;
+  width: 100%;
+  border: 1px solid rgb(67, 68, 88);
+  border-radius: 7px;
+  font-size: 16px;
+}
+
+button {
+  font-size: 14px;
+  border-radius: 7px;
+  background-color: rgb(49, 69, 90);
+  color: rgb(241, 239, 239);
+  border: 1px solid rgb(49, 69, 90);
+  box-shadow: 2px 2px 10px -3px rgba(0, 0, 0, 0.75);
+  cursor: pointer;
+  font-weight: bold;
+  padding: 10px;
+}
+
+button:hover {
+  background-color: rgb(125, 156, 163);
+  color: rgb(49, 69, 90);
+}
+
+#bookDetail {
+  background-color: rgba(192, 192, 192, 0.5);
+  padding:20px;
+  border-radius: 10px;
+}
+
+.listWrapper {
+  list-style:none;
+  text-align:left;
+  padding-left: 10px;
+  font-size:0.9em;
+}
+
+ol {
+  text-align:left;
+  padding-left: 30px;
+  font-size:0.9em;
+}
+
+.bookItem {
+  padding: 0 0 10px 0;
+}
+
+.bookTitle {
+  font-weight: 700;
+  margin-left: 10px;
+}
+
+.bookTitleMain{
+  font-weight: 700;
+  font-size: 1.1em;
+}
+
+.idMain{
+  font-size: 0.9em;
+}
+
+.fa fa-book {
+  font-size: 10px;
+}
+
+.bookButtons button {
+  display:block;
+  margin-bottom:10px;
+}
+
+#message, #commentMessage {
+  color: #605;
+}
+
+@media (min-width: 576px) {
+  .container {
+    padding: 0 50px;
+    text-align: left;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+  input {
+  display:inline-block;
+  width:45%;
+  }
+}
