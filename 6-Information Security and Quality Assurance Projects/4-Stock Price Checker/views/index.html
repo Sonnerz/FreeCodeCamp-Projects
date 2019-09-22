@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>FCC - Nasdaq Stock Price Checker</title>
+    <meta name="description" content="App for Nasdaq Stock Price Checker">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link id="favicon" rel="icon" href="https://cdn.glitch.com/99b8ef6e-2db9-4ee9-a5d1-45bdb6db4465%2Ffavicon.ico?v=1568906295611" type="image/x-icon">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/public/style.css">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+    type="text/css">
+  </head>
+  <body>
+    <section class="container-social">
+        <div class="text-right">
+          <ul class="social-list">
+            <li>
+              <a href="https://www.linkedin.com/in/sonyacooley/" title="linkedin" target="blank"><i class="fa fa-linkedin"></i></a>
+            </li>
+            <li>
+              <a href="https://github.com/Sonnerz" title="github" target="blank"><i class="fa fa-github-square"></i></a>
+            </li>
+            <li>
+              <a href="https://www.freecodecamp.org/sonnerz" title="free code camp" target="blank"><i class="fa fa-free-code-camp"></i></a>
+            </li>
+            <li>
+              <a class="nav-link text-light" href="mailto:sonya.cooley@mail.com" target="_blank" title="email me"><i class="fa fa-envelope-square"></i></a>
+            </li>
+          </ul>
+        </div>
+    </section>
+    <div class="container">
+      <header><h1>Nasdaq Stock Price Checker</h1></header>
+      <div class="content">
+        <div id="testui">
+          <h2>Get single price and total likes</h2>
+          <form id="testForm2" class="border">
+            <input type="text" name="ticker1" placeholder="msft" style="width: 100px" required="">
+            <input type="checkbox" name="like" value="true" class="checkbox-custom"><label>Like?</label><br>
+            <button type="submit">Get Price!</button>
+          </form>
+          <code id="jsonResult2"></code>
+          <h2>Compare and get relative likes</h2>
+          <form id="testForm" class="border">
+            <input type="text" name="ticker1" placeholder="goog" style="width: 100px" required="">
+            <input type="text" name="ticker2" placeholder="msft" style="width: 100px" required="">
+            <input type="checkbox" name="like" value="true" class="checkbox-custom"><label>Like Both?</label><br>
+            <button type="submit">Get Price!</button>
+          </form>
+          <code id="jsonResult"></code>
+        </div>
+        <div>
+          <h3>Example usage:</h3>
+          <code>/api/stock-prices?ticker1=goog</code><br>
+          <code>/api/stock-prices?ticker1=goog&amp;like=true</code><br>
+          <code>/api/stock-prices?ticker1=goog&amp;ticker2=msft</code><br>
+          <code>/api/stock-prices?ticker1=goog&amp;ticker2=msft&amp;like=true</code><br>
+          <h3>Example return:</h3>
+          <code>{"stockData":{"stock":"GOOG","price":"786.90","likes":1}}</code><br>
+          <code>{"stockData":[{"stock":"MSFT","price":"62.30","rel_likes":-1},{"stock":"GOOG","price":"786.90","rel_likes":1}]}</code>
+        </div>
+       </div>
+      <hr style="margin-top: 30px">
+
+      <div class="extra">
+        <a href="#" id="opener">View Project Requirements</a>
+      <div class="credit">Photo by Markus Spiske on Unsplash</div>
+      </div>
+    </div>
+    <div class="opaque-overlay">&nbsp;</div>
+    <!-- Your web-app is https, so your scripts need to be too -->
+    <script src="https://code.jquery.com/jquery-2.2.1.min.js"
+            integrity="sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00="
+            crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="/public/client.js"></script>
+    <div id="dialog" title="FCC Project Requirements">
+    <p style="text-align:right">
+      resize <i class="fa fa-arrows-h" aria-hidden="true"></i>
+    </p>
+   <ol>
+        <li>Set the content security policies to only allow loading of scripts and css from your server.</li>
+        <li>I can <b>GET</b> <code>/api/stock-prices</code> with form data containing a Nasdaq <i>stock</i> ticker and recieve back an object <i>stockData</i>.</li>
+        <li>In <i>stockData</i>, I can see the <i>stock</i>(string, the ticker), <i>price</i>(decimal in string format), and <i>likes</i>(int).</li>
+        <li>I can also pass along field <i>like</i> as <b>true</b>(boolean) to have my like added to the stock(s). Only 1 like per ip should be accepted.</li>
+        <li>If I pass along 2 stocks, the return object will be an array with both stock"s info but instead of <i>likes</i>, it will display <i>rel_likes</i>(the difference between the likes on both) on both.</li>
+        <li>A good way to receive current price is the following external API(replacing "GOOG" with your stock): <code>https://finance.google.com/finance/info?q=NASDAQ%3aGOOG</code></li>
+        <li>All 5 functional tests are complete and passing.</li>
+      </ol>
+  </div>
+
+
+  </body>
+</html>

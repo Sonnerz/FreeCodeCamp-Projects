@@ -1,0 +1,31 @@
+{
+  "name": "fcc-stock-price-checker",
+  "version": "1.0.0",
+  "description": "FreeCodeCamp - Nasdaq Stock Price Checker",
+  "main": "server.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "dotenv": "^8.1.0",
+    "mocha": "^6.2.0",
+    "nodemon": "^1.19.2",
+    "zombie": "^6.1.4"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "helmet": "^3.21.1",
+    "mongodb": "^3.3.2",
+    "mongoose": "^5.7.1"
+  }
+}
