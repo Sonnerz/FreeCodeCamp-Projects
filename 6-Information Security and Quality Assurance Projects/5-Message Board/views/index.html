@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>FCC - Anonymous Message Board</title>
+  <meta name="description" content="App for Message Board">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link id="favicon" rel="icon" href="/public/favicon.ico" type="image/x-icon">
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+    type="text/css">
+  <link rel="stylesheet" href="/public/style.css">
+</head>
+
+<body class="background">
+  <section class="container-social">
+    <div class="text-right">
+      <ul class="social-list">
+        <li>
+          <a href="https://www.linkedin.com/in/sonyacooley/" title="linkedin" target="blank"><i
+              class="fa fa-linkedin"></i></a>
+        </li>
+        <li>
+          <a href="https://github.com/Sonnerz" title="github" target="blank"><i class="fa fa-github-square"></i></a>
+        </li>
+        <li>
+          <a href="https://www.freecodecamp.org/sonnerz" title="free code camp" target="blank"><i
+              class="fa fa-free-code-camp"></i></a>
+        </li>
+        <li>
+          <a class="nav-link text-light" href="mailto:sonya.cooley@mail.com" target="_blank" title="email me"><i
+              class="fa fa-envelope-square"></i></a>
+        </li>
+      </ul>
+    </div>
+  </section>
+  <div class="container">
+    <header>
+      <h1>Anonymous Message Board</h1>
+    </header>
+    <div id="createNewBoard">
+      <h3>Create a New Board:</h3>
+      <form id="newBoardForm" class="border" method="post">
+        <input type="text" name="boardtitle" placeholder="*Board title" required=""><br>
+        <button type="submit">Submit Board</button>
+      </form>
+      <div>
+        <p id="newboardname"></p>
+      </div>
+    </div>
+
+    <div id="listofBoards">
+      <h3>Latest Boards:</h3>
+      <div class="tableOfBoards">
+        <div class="name-header">Name</div>
+        <div class="th-header">Latest Thread</div>
+        <div class="bumped-header">Updated</div>
+      </div>
+      <div id="boardList"></div>
+    </div>
+    <hr style="margin: 50px">
+
+
+    <div class="extra">
+      <p><a href="#" id="opener">View Project Requirements</a></p>
+      <p><a href="#" id="openTests">View Project Tests</a></p>
+      <div class="credit">Photo by Annie Spratt on Unsplash</div>
+    </div>
+
+  </div>
+  <!-- Your web-app is https, so your scripts need to be too -->
+  <script src="https://code.jquery.com/jquery-2.2.1.min.js"
+    integrity="sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+    $(function () {
+      // get all boards - index
+      $.ajax({
+        type: "GET",
+        url: "/api/boards",
+        success: function (data) {
+          var boards = [];
+          data.forEach(function (b, index) {
+            var board = ['<div class="row">'];
+            board.push('<div class="name"><a href=/b/' + b.board_title + ">" + b.board_title + '</a></div>')
+            if (b.threads != "") {
+              board.push('<div class="th">' + b.threads[0].text.substring(0, 20) + "..." + '</div>')
+              board.push('<div class="bumped">' + new Date(b.threads[0].bumped_on).toLocaleDateString("en-GB") + "-")
+              board.push(new Date(b.threads[0].bumped_on).toLocaleTimeString("en-GB") + '</div>')
+            } else {
+              board.push('<div class="th">&nbsp;</div>')
+              board.push('<div class="bumped">&nbsp;</div>')
+            }
+            board.push('</div></div>')
+            boards.push(board.join(''));
+          });
+          $('#boardList').html(boards.join(''));
+        }
+      });
+    });
+  </script>
+  <script src="/public/client.js"></script>
+  <script>
+    $(function () {
+      $('#newThread').submit(function () {
+        var board = $('#board1').val();
+        $(this).attr('action', "/api/threads/" + board);
+      });
+      $('#newReply').submit(function () {
+        var board = $('#board4').val();
+        $(this).attr('action', "/api/replies/" + board);
+      });
+      $('#reportThread').submit(function (e) {
+        var url = "/api/threads/" + $('#board2').val();
+        $.ajax({
+          type: "PUT",
+          url: url,
+          data: $(this).serialize(),
+          success: function (data) {
+            alert(data);
+          }
+        });
+        e.preventDefault();
+      });
+      $('#deleteThread').submit(function (e) {
+        var url = "/api/threads/" + $('#board3').val();
+        $.ajax({
+          type: "DELETE",
+          url: url,
+          data: $(this).serialize(),
+          success: function (data) {
+            alert(data);
+          }
+        });
+        e.preventDefault();
+      });
+      $('#reportReply').submit(function (e) {
+        var url = "/api/replies/" + $('#board5').val();
+        $.ajax({
+          type: "PUT",
+          url: url,
+          data: $(this).serialize(),
+          success: function (data) {
+            alert(data);
+          }
+        });
+        e.preventDefault();
+      });
+      $('#deleteReply').submit(function (e) {
+        var url = "/api/replies/" + $('#board6').val();
+        $.ajax({
+          type: "DELETE",
+          url: url,
+          data: $(this).serialize(),
+          success: function (data) {
+            alert(data);
+          }
+        });
+        e.preventDefault();
+      });
+    });
+  </script>
+
+  <div id="dialog1" title="FCC Project Requirements">
+    <p style="text-align:right">
+      resize <i class="fa fa-arrows-h" aria-hidden="true"></i>
+    </p>
+    <div>
+      <ol>
+        <li>Only allow your site to be loading in an iFrame on your own pages.</li>
+        <li>Do not allow DNS prefetching.</li>
+        <li>Only allow your site to send the referrer for your own pages.</li>
+        <li>I can <b>POST</b> a thread to a specific message board by passing form data <code>text</code> and
+          <code>delete_password</code> to <i>/api/threads/{board}</i>.(Recomend res.redirect to board page /b/{board})
+          Saved will be <code>_id</code>, <code>text</code>, <code>created_on</code>(date&amp;time),
+          <code>bumped_on</code>(date&amp;time, starts same as created_on), <code>reported</code>(boolean),
+          <code>delete_password</code>, &amp; <code>replies</code>(array).</li>
+        <li>I can <b>POST</b> a reply to a thead on a specific board by passing form data <code>text</code>,
+          <code>delete_password</code>, &amp; <code>thread_id</code> to <i>/api/replies/{board}</i> and it will also
+          update the bumped_on date to the comments date.(Recomend res.redirect to thread page /b/{board}/{thread_id})
+          In the thread's 'replies' array will be saved <code>_id</code>, <code>text</code>, <code>created_on</code>,
+          <code>delete_password</code>, &amp; <code>reported</code>.</li>
+        <li>I can <b>GET</b> an array of the most recent 10 bumped threads on the board with only the most recent 3
+          replies from <i>/api/threads/{board}</i>. The <code>reported</code> and <code>delete_passwords</code> fields
+          will not be sent.</li>
+        <li>I can <b>GET</b> an entire thread with all it's replies from
+          <i>/api/replies/{board}?thread_id={thread_id}</i>. Also hiding the same fields.</li>
+        <li>I can delete a thread completely if I send a <b>DELETE</b> request to <i>/api/threads/{board}</i> and
+          pass along the <code>thread_id</code> &amp; <code>delete_password</code>. (Text response will be 'incorrect
+          password' or 'success')</li>
+        <li>I can delete a post(just changing the text to '[deleted]') if I send a <b>DELETE</b> request to
+          <i>/api/replies/{board}</i> and pass along the <code>thread_id</code>, <code>reply_id</code>, &amp;
+          <code>delete_password</code>. (Text response will be 'incorrect password' or 'success')</li>
+        <li>I can report a thread and change it's reported value to true by sending a <b>PUT</b> request to
+          <i>/api/threads/{board}</i> and pass along the <code>thread_id</code>. (Text response will be 'success')</li>
+        <li>I can report a reply and change it's reported value to true by sending a <b>PUT</b> request to
+          <i>/api/replies/{board}</i> and pass along the <code>thread_id</code> &amp; <code>reply_id</code>. (Text
+          response will be 'success')</li>
+        <li>Complete functional tests that wholely test routes and pass.</li>
+      </ol>
+      <img
+        src="https://cdn.gomix.com/8f5547a1-a0d6-48f6-aa38-51753a0105f4%2FScreen%20Shot%202017-01-02%20at%201.04.10%20AM.png">
+
+    </div>
+
+  </div>
+
+  <div id="dialog2" title="FCC Project Tests">
+    <p style="text-align:right">
+      resize <i class="fa fa-arrows-h" aria-hidden="true"></i>
+    </p>
+    <div id="testui" style="margin-left: 5%">
+      <h2 style="text-align: left">API Tests:</h2>
+      <h4>New thread (POST /api/threads/:board)</h4>
+      <form action="/api/threads/test" method="post" id="newThread">
+        <input type="text" placeholder="board" id="board1" name="board" required=""><br>
+        <textarea type="text" placeholder="Thread text..." name="text" required=""></textarea><br>
+        <input type="text" placeholder="password to delete" name="delete_password" required=""><br>
+        <input type="submit" value="Submit">
+      </form>
+      <hr>
+      <h4>Report thread (PUT /api/threads/:board)</h4>
+      <form id="reportThread">
+        <input type="text" placeholder="board" id="board2" name="board" required=""><br>
+        <input type="text" placeholder="id to report" name="report_id" required=""><br>
+        <input type="submit" value="Submit">
+      </form>
+      <hr>
+      <h4>Delete thread (DELETE /api/threads/:board)</h4>
+      <form id="deleteThread">
+        <input type="text" placeholder="board' id='board3" name="board" required=""><br>
+        <input type="text" placeholder="id to delete" name="thread_id" required=""><br>
+        <input type="text" placeholder="password" name="delete_password" required=""><br>
+        <input type="submit" value="Submit">
+      </form>
+      <hr>
+      <h4>New reply (POST /api/replies/:board)</h4>
+      <form action="/api/threads/test" method="post" id="newReply">
+        <input type="text" placeholder="board' id='board4" name="board" required=""><br>
+        <input type="text" placeholder="thread id" name="thread_id" required=""><br>
+        <textarea type="text" placeholder="Thread text..." name="text" required=""></textarea><br>
+        <input type="text" placeholder="password to delete" name="delete_password" required=""><br>
+        <input type="submit" value="Submit">
+      </form>
+      <hr>
+      <h4>Report reply (PUT /api/replies/:board)</h4>
+      <form id="reportReply">
+        <input type="text" placeholder="board' id='board5" name="board" required=""><br>
+        <input type="text" placeholder="thread id" name="thread_id" required=""><br>
+        <input type="text" placeholder="id to report" name="reply_id" required=""><br>
+        <input type="submit" value="Submit">
+      </form>
+      <hr>
+      <h4>Delete reply (DELETE /api/replies/:board)</h4>
+      <form id="deleteReply">
+        <input type="text" placeholder="board' id='board6" name="board" required=""><br>
+        <input type="text" placeholder="thread id" name="thread_id" required=""><br>
+        <input type="text" placeholder="id to delete" name="reply_id" required=""><br>
+        <input type="text" placeholder="password" name="delete_password" required=""><br>
+        <input type="submit" value="Submit">
+      </form>
+    </div>
+  </div>
+
+</body>
+
+</html>

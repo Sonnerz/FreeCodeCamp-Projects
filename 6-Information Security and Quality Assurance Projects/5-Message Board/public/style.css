@@ -1,0 +1,339 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Galada&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  color: #111;
+  line-height: 1.4em;
+  margin: 0;
+  padding: 0;
+  background-color: rgba(216, 226, 224, 1.0);
+  background: url('https://cdn.glitch.com/2ce4b98b-a888-4dd4-840a-69e8a0a48e40%2Fannie-spratt-unsplash.jpg?v=1569785621367') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.ui-widget {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.ui-widget input,
+.ui-widget select,
+.ui-widget textarea,
+.ui-widget button,
+.ui-accordion .ui-accordion-header {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 13px;
+}
+
+
+/* SOCIAL LINKS START ---------------------------- */
+.container-social {
+  background-color: #333;
+  width: 100%;
+  padding: 5px 30px 5px 0px;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.social-list li {
+  transition: 0.2s linear;
+  -webkit-transition: 0.2s linear;
+  -moz-transition: 0.2s linear;
+  opacity: 1.0;
+  display: inline-block;
+  margin: 0;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.social-list li a {
+  margin-right: 25px;
+}
+
+.social-list li a i {
+  color: #f0f1e9;
+  font-size: 2em !important;
+}
+
+.social-list li a i:hover {
+  color: #ffdc00;
+}
+
+/* SOCIAL LINKS END ------------------------------ */
+
+
+.container {
+  padding: 0 20px;
+  text-align: center;
+}
+
+.content {
+  background: rgb(240, 240, 240);
+  background: linear-gradient(0deg, rgba(240, 240, 240, 1) 0%, rgba(240, 240, 240, 1) 0%, rgba(156, 159, 164, 1) 100%);
+  padding: 20px 50px;
+}
+
+h1 {
+  font-size: 3em;
+  margin: 0;
+  padding: 50px 0;
+  font-family: 'Galada', cursive;
+  line-height: 1em;
+}
+
+h3,
+h2 {
+  line-height: 1.1em;
+}
+
+p {
+  font-size: 16px;
+}
+
+hr {
+  border: 1px solid #297373;
+}
+
+input {
+  border: 1px solid #297373;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  font-family: inherit;
+  line-height: normal;
+  display: inline-block;
+  margin-bottom: 10px;
+  padding: 10px;
+  width: 100%;
+}
+
+#newThread textarea,
+#newReply textarea {
+  border: 1px solid #297373;
+  width: 100%;
+  margin: 0 auto;
+  resize: vertical;
+}
+
+input:hover,
+textarea:hover,
+#newThread textarea:hover,
+#newReply textarea:hover {
+  border: 1px solid #FF8552;
+}
+
+input:focus,
+input:active,
+textarea:focus,
+textarea:active,
+#newThread textarea:focus,
+#newReply textarea:focus {
+  border: 1px solid #FF8552;
+}
+
+input[type=submit] {
+  display: block;
+  font-size: 14px;
+  font-family: 'Open Sans', sans-serif;
+  border-radius: 5px;
+  background-color: #297373;
+  color: rgb(241, 239, 239);
+  border: 1px solid rgb(49, 69, 90);
+  box-shadow: 2px 2px 10px -3px rgba(0, 0, 0, 0.75);
+  cursor: pointer;
+  font-weight: bold;
+  padding: 10px;
+}
+
+input[type=submit]:hover {
+  background-color: rgb(125, 156, 163);
+  color: rgb(49, 69, 90);
+}
+
+button[type=submit] {
+  background-color: #FF8552;
+  padding: 2px 3px;
+}
+
+button[type=submit]:hover {
+  background-color: #297373;
+  padding: 2px 3px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.deleteFormDiv {
+  display: flex;
+  justify-content: flex-end;
+  padding: 15px 0px;
+}
+
+#deleteThread input,
+#deleteReply input {
+  display: inline-block;
+  margin: 0;
+}
+
+#deleteThread input[type=text],
+#deleteReply input[type=text] {
+  margin-right: 10px;
+}
+
+#deleteThread input[type=submit],
+#deleteReply input[type=submit] {
+  padding: 9px;
+}
+
+ol {
+  text-align: left;
+  padding-left: 30px;
+  font-size: 0.9em;
+}
+
+.message {
+  color: #333;
+  word-wrap: break-word;
+  font-weight: 700;
+}
+
+.credit {
+  font-size: 0.75em;
+}
+
+.extra {
+  margin-bottom: 10px;
+}
+
+.ui-dialog {
+  position: absolute;
+  top: 100px !important;
+  left: 0;
+  padding: .2em;
+  outline: 0;
+}
+
+.replies {
+  margin-left: 50px;
+}
+
+.reply {
+  border: 1px dashed black;
+  background-color: rgba(230, 230, 230, 0.5);
+  margin: 5px;
+  padding: 5px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.newReply {
+  margin: 10px 5px 10px 5px;
+  background-color: transparent;
+}
+
+.thread {
+  border: 1px dashed #39393A;
+  background-color: rgba(230, 230, 230, 0.7);
+  padding: 10px;
+  margin-bottom: 5px;
+}
+
+.id {
+  font-size: 12px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.index {
+  font-weight: 900;
+  font-size: 12px;
+  flex-grow: 1
+}
+
+.idDateTime {
+  flex-grow: 1
+}
+
+.reportButton {
+  flex-grow: 3;
+  text-align: right;
+}
+
+.created {
+  font-weight: 700;
+  padding-left: 20px;
+}
+
+#submitNewThread,
+#createNewBoard,
+#listofBoards {
+  margin: 0px 10px;
+  margin-bottom: 20px;
+}
+
+#boardList {
+  background-color: #e5e5e5;
+}
+
+.tableOfBoards,
+.row {
+  display: flex;
+  justify-content: space-around;
+  box-sizing: border-box;
+}
+
+.row {
+  padding: 10px;
+}
+
+.name,
+.th,
+.bumped,
+.name-header,
+.th-header,
+.bumped-header {
+  flex-grow: 1;
+}
+
+.name-header,
+.th-header,
+.bumped-header {
+  flex-grow: 1;
+  font-weight: 900;
+  background-color: #297373;
+  padding: 5px;
+  color: #e5e5e5;
+}
+
+@media (min-width: 576px) {
+  .container {
+    padding: 0 50px;
+    text-align: left;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+
+  #submitNewThread,
+  #createNewBoard,
+  #listofBoards,
+  .extra {
+    margin: 0px 50px;
+    margin-bottom: 50px;
+  }
+
+  input {
+    display: inline-block;
+    width: 45%;
+  }
+}

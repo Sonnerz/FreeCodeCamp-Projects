@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>FCC - Anonymous Message Board</title>
+  <meta name="description" content="App for Message Board">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link id="favicon" rel="icon" href="/public/favicon.ico" type="image/x-icon">
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+    type="text/css">
+  <link rel="stylesheet" href="/public/style.css">
+</head>
+
+<body class="background">
+  <section class="container-social">
+    <div class="text-right">
+      <ul class="social-list">
+        <li>
+          <a href="https://www.linkedin.com/in/sonyacooley/" title="linkedin" target="blank"><i
+              class="fa fa-linkedin"></i></a>
+        </li>
+        <li>
+          <a href="https://github.com/Sonnerz" title="github" target="blank"><i class="fa fa-github-square"></i></a>
+        </li>
+        <li>
+          <a href="https://www.freecodecamp.org/sonnerz" title="free code camp" target="blank"><i
+              class="fa fa-free-code-camp"></i></a>
+        </li>
+        <li>
+          <a class="nav-link text-light" href="mailto:sonya.cooley@mail.com" target="_blank" title="email me"><i
+              class="fa fa-envelope-square"></i></a>
+        </li>
+      </ul>
+    </div>
+  </section>
+  <div class="container">
+    <header>
+      <h1 id="threadTitle"></h1>
+      <a href="/" style="margin-left:20px;margin-bottom:20px">Home</a>
+    </header>
+    <div id="boardDisplay"></div>
+
+  </div>
+
+  <!-- Your web-app is https, so your scripts need to be too -->
+  <script src="https://code.jquery.com/jquery-2.2.1.min.js"
+    integrity="sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00=" crossorigin="anonymous"></script>
+  <script>
+    $(function () {
+      var currentURL = window.location.pathname.slice(3);
+      currentURL = currentURL.split('/');
+      var url = "/api/replies/" + currentURL[0];
+      $('#threadTitle').text(window.location.pathname);
+      $.ajax({
+        type: "GET",
+        url: url,
+        data: { thread_id: currentURL[1] },
+        success: function (ele, index) {
+          if (ele.hasOwnProperty('message')) {
+            $('#boardDisplay').html(ele.message);
+          } else {
+            var boardThreads = [];
+            //
+            // THIS ARRAY SET UP IS FOR CODE READABILITIES AND TESTING!
+            // THIS IS NOT WHAT IT WOULD LOOK LIKE TO GO LIVE
+            //
+            //console.log(ele);//can I use typeScript please?!
+            var thread = ['<div class="thread">'];
+            thread.push('<div class="main">')
+
+            thread.push('<div class="id"><div class="idDateTime"><strong>id:</strong> ' + ele._id + ' <span class="created">created: </span> (' + new Date(ele.created_on).toLocaleDateString("en-GB") + " - " + new Date(ele.created_on).toLocaleTimeString("en-GB") + ')</div>');
+
+            thread.push('<div class="reportButton"><form id="reportThread"><input type="hidden" name="report_id" value="' + ele._id + '"><button type="submit" title="Report thread"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i></button></form></div></div></div>');
+
+            thread.push('<h3>' + ele.text + '</h3>');
+
+            thread.push('<div class="deleteFormDiv"><form id="deleteThread"><input type="hidden" value="' + ele._id + '" name="thread_id" required=""><input type="text" placeholder="password" name="delete_password" required=""><input type="submit" title="Delete this thread"  value="Delete this thread"></form></div></div>');
+
+            thread.push('<div class="replies">');
+
+            ele.replies.forEach(function (rep, index) {
+              thread.push('<div class="reply">')
+              thread.push('<div class="id"><div class="index">#' + (index + 1) + '</div><div class="idDateTime"><strong>id:</strong> ' + rep._id + ' <span class="created">created:</span> (' + new Date(ele.created_on).toLocaleDateString("en-GB") + " - " + new Date(ele.created_on).toLocaleTimeString("en-GB") + ')</div>');
+              thread.push('<div class="reportButton"><form id="reportReply"><input type="hidden" name="thread_id" value="' + ele._id + '"><input type="hidden" name="reply_id" value="' + rep._id + '"><button type="submit" title="Report reply"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i></button></form></div></div>');
+
+              thread.push('<p>' + rep.text + '</p>');
+
+              thread.push('<div class="deleteFormDiv"><form id="deleteReply"><input type="hidden" value="' + ele._id + '" name="thread_id" required=""><input type="hidden" value="' + rep._id + '" name="reply_id" required=""><input type="text" placeholder="password" name="delete_password" required=""><input type="submit" value="Delete this reply"></form></div></div>');
+
+            });
+            thread.push('<div class="newReply">')
+            thread.push('<form action="/api/replies/' + currentURL[0] + '/" method="post" id="newReply">');
+            thread.push('<input type="hidden" name="thread_id" value="' + ele._id + '">');
+            thread.push('<textarea rows="5" cols="80" type="text" placeholder="Quick reply..." name="text" required=""></textarea><br>');
+            thread.push('<input type="text" placeholder="password to delete" name="delete_password" required=""><input type="submit" value="Reply">')
+            thread.push('</form></div></div></div>')
+            boardThreads.push(thread.join(''));
+            $('#boardDisplay').html(boardThreads.join(''));
+          }
+        }
+      });
+
+    });
+  </script>
+  <script src="/public/client.js"></script>
+</body>
+
+</html>
