@@ -20,6 +20,8 @@ Build a Drum Machine - https://codepen.io/sonnerz/full/Nmyxqr
 
 Javascript Calculator - https://codepen.io/sonnerz/full/YMvJam
 
+Pomodoro Clock - https://codepen.io/sonnerz/full/OJJPmYb
+
 ##  Data Visualization
 Visualize Data with a Bar Chart - https://codepen.io/sonnerz/full/qzmmrp
 
