@@ -16,4 +16,3 @@ node_modules
 2-Javascript Algorithms And Data Structures/Intermediate Algorithm Scripting/test.js
 *.txt
 coverage
-.gitignore
