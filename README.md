@@ -1,5 +1,7 @@
 # FreeCodeCamp Projects
 
+![Full Stack Cert](cert.png)
+
 ## Responsive Web Design
 Tribute Page - https://codepen.io/sonnerz/full/pYNEpJ
 
