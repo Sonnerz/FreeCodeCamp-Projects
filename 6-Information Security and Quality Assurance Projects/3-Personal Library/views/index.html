@@ -1,111 +1,123 @@
 <html>
-  <head>
-    <title>FCC - Personal Library</title>
-    <meta name="description" content="App for a Personal Library">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link id="favicon" rel="icon" href="/public/favicon.ico" type="image/x-icon">
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <link rel="stylesheet" href="./public/style.css">
-    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
-    type="text/css">
-  </head>
-  <body>
-      <section class="container-social">
-        <div class="text-right">
-          <ul class="social-list">
-            <li>
-              <a href="https://www.linkedin.com/in/sonyacooley/" title="linkedin" target="blank"><i class="fa fa-linkedin"></i></a>
-            </li>
-            <li>
-              <a href="https://github.com/Sonnerz" title="github" target="blank"><i class="fa fa-github-square"></i></a>
-            </li>
-            <li>
-              <a href="https://www.freecodecamp.org/sonnerz" title="free code camp" target="blank"><i class="fa fa-free-code-camp"></i></a>
-            </li>
-            <li>
-              <a class="nav-link text-light" href="mailto:sonya.cooley@mail.com" target="_blank" title="email me"><i class="fa fa-envelope-square"></i></a>
-            </li>
-          </ul>
-        </div>
-    </section>
-    <div class="container">
-      <header><h1>Personal Library</h1></header>
-      <hr style="margin: 30px">
-      <div id="sampleui">
-        <form id="newBookForm" class="border">
-          <input type="text" id="bookTitleToAdd" name="title" placeholder="New Book Title">
-          <button type="submit" value="Submit" id="newBook">Submit New Book!</button>
-        </form>
-        <p id="message"></p>
-        <div id="display"></div>
-        <div id="bookDetail">
-          <p id="detailTitle">Select a book to see it's details and comments</p>
-          <ol id="detailComments"></ol>
-          <p id="commentMessage"></p>
-        </div>
-        <hr style="margin: 30px">
-        <button id="deleteAllBooks">Delete all books...</button>
-        <p id="deleteMessage"></p>
-      </div>
-      <hr style="margin-top: 30px">
-     <a href="#" id="opener">View Project Requirements</a>
-      <div class="opaque-overlay">&nbsp;</div>
-    </div>
-    <script src="https://code.jquery.com/jquery-2.2.1.min.js"
-            integrity="sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00="
-            crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script src="/public/client.js"></script>
-    <script>
-      /*
-      *  For #sampleposting to update form action url to test inputs book id
-      */
-      $(function() {
-       $('#commentTest').submit(function(){
-         var id = $('#idinputtest').val();
-         $(this).attr('action', "/api/books/" + id);
-       });
-      });
-   </script>
-   <script>
-  $( function() {
-    $( "#dialog" ).dialog({
-      autoOpen: false,
-      show: {
-        effect: "blind",
-        duration: 100
-      },
-      hide: {
-        effect: "blind",
-        duration: 100
-      }
-    });
 
-    $("#opener").on( "click", function() {
-      $("#dialog").dialog("open");
+<head>
+  <title>FCC - Personal Library</title>
+  <meta name="description" content="App for a Personal Library">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link id="favicon" rel="icon" href="/public/favicon.ico" type="image/x-icon">
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="./public/style.css">
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+    type="text/css">
+</head>
+
+<body>
+  <section class="container-social">
+    <div class="text-right">
+      <ul class="social-list">
+        <li>
+          <a href="https://www.linkedin.com/in/sonyacooley/" title="linkedin" target="blank"><i
+              class="fa fa-linkedin"></i></a>
+        </li>
+        <li>
+          <a href="https://github.com/Sonnerz" title="github" target="blank"><i class="fa fa-github-square"></i></a>
+        </li>
+        <li>
+          <a href="https://www.freecodecamp.org/sonnerz" title="free code camp" target="blank"><i
+              class="fa fa-free-code-camp"></i></a>
+        </li>
+        <li>
+          <a href="https://sonnerz.github.io" title="portfolio" target="blank"><i class="fa fa-briefcase"></i></a>
+        </li>
+      </ul>
+    </div>
+  </section>
+  <div class="container">
+    <header>
+      <h1>Personal Library</h1>
+    </header>
+    <hr style="margin: 30px">
+    <div id="sampleui">
+      <form id="newBookForm" class="border">
+        <input type="text" id="bookTitleToAdd" name="title" placeholder="New Book Title">
+        <button type="submit" value="Submit" id="newBook">Submit New Book!</button>
+      </form>
+      <p id="message"></p>
+      <div id="display"></div>
+      <div id="bookDetail">
+        <p id="detailTitle">Select a book to see it's details and comments</p>
+        <ol id="detailComments"></ol>
+        <p id="commentMessage"></p>
+      </div>
+      <hr style="margin: 30px">
+      <button id="deleteAllBooks">Delete all books...</button>
+      <p id="deleteMessage"></p>
+    </div>
+    <hr style="margin-top: 30px">
+    <a href="#" id="opener">View Project Requirements</a>
+    <div class="opaque-overlay">&nbsp;</div>
+  </div>
+  <script src="https://code.jquery.com/jquery-2.2.1.min.js"
+    integrity="sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="/public/client.js"></script>
+  <script>
+    /*
+    *  For #sampleposting to update form action url to test inputs book id
+    */
+    $(function () {
+      $('#commentTest').submit(function () {
+        var id = $('#idinputtest').val();
+        $(this).attr('action', "/api/books/" + id);
+      });
     });
-  });
+  </script>
+  <script>
+    $(function () {
+      $("#dialog").dialog({
+        autoOpen: false,
+        show: {
+          effect: "blind",
+          duration: 100
+        },
+        hide: {
+          effect: "blind",
+          duration: 100
+        }
+      });
+
+      $("#opener").on("click", function () {
+        $("#dialog").dialog("open");
+      });
+    });
   </script>
 
   <div id="dialog" title="FCC Project Requirements">
     <p style="text-align:right">
       resize <i class="fa fa-arrows-h" aria-hidden="true"></i>
     </p>
-   <ol>
-        <li>Nothing from my website will be cached in my client as a security measure.</li>
-        <li>I will see that the site is powered by 'PHP 4.2.0' even though it isn't as a security measure.</li>
-        <li>I can <b>post</b> a <code>title</code> to /api/books to add a book and returned will be the object with the <code>title</code> and a unique <code>_id</code>.</li>
-        <li>I can <b>get</b> /api/books to retrieve an aray of all books containing <code>title</code>, <code>_id</code>, & <code>commentcount</code>.</li>
-        <li>I can <b>get</b> /api/books/{_id} to retrieve a single object of a book containing <code>title</code>, <code>_id</code>, & an array of <code>comments</code> (empty array if no comments present).</li>
-        <li>I can <b>post</b> a <code>comment</code> to /api/books/{_id} to add a comment to a book and returned will be the books object similar to <b>get</b> /api/books/{_id}.</li>
-        <li>I can <b>delete</b> /api/books/{_id} to delete a book from the collection. Returned will be 'delete successful' if successful.</li>
-        <li>If I try to request a book that doesn't exist I will get a 'no book exists' message.</li>
-        <li>I can send a <b>delete</b> request to /api/books to delete all books in the database. Returned will be 'complete delete successful' if successful.</li>
-        <li>All 6 functional tests required are complete and passing.</li>
-      </ol>
+    <ol>
+      <li>Nothing from my website will be cached in my client as a security measure.</li>
+      <li>I will see that the site is powered by 'PHP 4.2.0' even though it isn't as a security measure.</li>
+      <li>I can <b>post</b> a <code>title</code> to /api/books to add a book and returned will be the object with the
+        <code>title</code> and a unique <code>_id</code>.</li>
+      <li>I can <b>get</b> /api/books to retrieve an aray of all books containing <code>title</code>, <code>_id</code>,
+        & <code>commentcount</code>.</li>
+      <li>I can <b>get</b> /api/books/{_id} to retrieve a single object of a book containing <code>title</code>,
+        <code>_id</code>, & an array of <code>comments</code> (empty array if no comments present).</li>
+      <li>I can <b>post</b> a <code>comment</code> to /api/books/{_id} to add a comment to a book and returned will be
+        the books object similar to <b>get</b> /api/books/{_id}.</li>
+      <li>I can <b>delete</b> /api/books/{_id} to delete a book from the collection. Returned will be 'delete
+        successful' if successful.</li>
+      <li>If I try to request a book that doesn't exist I will get a 'no book exists' message.</li>
+      <li>I can send a <b>delete</b> request to /api/books to delete all books in the database. Returned will be
+        'complete delete successful' if successful.</li>
+      <li>All 6 functional tests required are complete and passing.</li>
+    </ol>
   </div>
 
-  </body>
+</body>
+
 </html>
