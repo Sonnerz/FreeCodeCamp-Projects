@@ -11,4 +11,4 @@ https://sonnerz.github.io/Pomodoro-Clock/
 A Pen is created at CodePen.io: https://codepen.io/sonnerz/full/OJJPmYb
 
 
-![Pomodoro Clock Preview](public/prev.jpg)
+![Pomodoro Clock Preview](src/assets/prev.jpg)

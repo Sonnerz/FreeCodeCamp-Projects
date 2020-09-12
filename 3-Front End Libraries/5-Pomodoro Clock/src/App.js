@@ -1,36 +1,32 @@
 import React, { Component } from 'react';
 import './App.css';
-import Break from './components/Break';
-import Session from './components/Session';
 import Controls from './components/Controls';
 import Timer from './components/Timer';
+import ControlMinutes from './components/ControlMinutes';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
-      break: 60,
-      userSetBreak: 60,
-      session: 60,
-      userSetSession: 60,
+      break: 300,
+      userSetBreak: 300,
+      session: 1500,
+      userSetSession: 1500,
       sessionTimerRunning: false,
       timerPaused: true,
       intervalId: "",
-      sessionType: "session",
-      audioFile: ""
+      sessionType: "session"
     };
     this.handleIncrementClick = this.handleIncrementClick.bind(this);
     this.handleDecrementClick = this.handleDecrementClick.bind(this);
     this.handleControlClick = this.handleControlClick.bind(this);
-    this.startSessionTimer = this.startSessionTimer.bind(this);
-    this.pauseSessionTimer = this.pauseSessionTimer.bind(this);
-    this.startBreakTimer = this.startBreakTimer.bind(this);
-    this.pauseBreakTimer = this.pauseBreakTimer.bind(this);
+    this.pauseTimer = this.pauseTimer.bind(this);
     this.runTimer = this.runTimer.bind(this);
+    this.startTimer = this.startTimer.bind(this);
   }
 
-  handleIncrementClick(type) {
-    if (type === "break") {
+  handleIncrementClick(e) {
+    if (e.currentTarget.id === "break-increment") {
       this.state.break === 3600
         ? this.setState(prevState => {
           return { break: prevState.break };
@@ -53,12 +49,10 @@ class App extends Component {
           };
         });
     }
-
   }
 
-
-  handleDecrementClick(type) {
-    if (type === "break") {
+  handleDecrementClick(e) {
+    if (e.currentTarget.id === "break-decrement") {
       this.state.break === 60
         ? this.setState(prevState => {
           return { break: prevState.break };
@@ -84,9 +78,8 @@ class App extends Component {
 
   }
 
-
-  handleControlClick(controlButton) {
-    if (controlButton === "start_stop") {
+  handleControlClick(e) {
+    if (e.currentTarget.id === "start_stop") {
       this.setState(prevState => {
         return {
           sessionTimerRunning: !prevState.sessionTimerRunning,
@@ -94,43 +87,43 @@ class App extends Component {
         }
       })
       if (this.state.sessionType === "session") {
-        this.state.sessionTimerRunning ? this.pauseSessionTimer() : this.startSessionTimer();
+        this.state.sessionTimerRunning
+          ? this.pauseTimer()
+          : this.startTimer("session");
       } else {
-        this.state.sessionTimerRunning ? this.pauseBreakTimer() : this.startBreakTimer();
+        this.state.sessionTimerRunning
+          ? this.pauseTimer()
+          : this.startTimer("break");
       }
-
-    } else if (controlButton === "reset") {
+    } else if (e.currentTarget.id === "reset") {
       clearInterval(this.state.intervalId)
       this.beepSound.pause()
       this.beepSound.currentTime = 0;
       this.setState(prevState => {
         return {
-          break: 60,
-          userSetBreak: 60,
-          session: 60,
-          userSetSession: 60,
+          break: 300,
+          userSetBreak: 300,
+          session: 1500,
+          userSetSession: 1500,
           sessionTimerRunning: false,
           timerPaused: true,
           intervalId: "",
           sessionType: "session"
         }
       })
-
     }
   }
 
   countDown = (timerType) => {
-    this.setState({ session: this.state.session - 1 })
-    this.setState({ break: this.state.break - 1 })
+    timerType === "session"
+      ? this.setState({ session: this.state.session - 1 })
+      : this.setState({ break: this.state.break - 1 })
   }
 
   runTimer(timerType) {
-    let timer = timerType === "session" ? this.state.session : this.state.break
     let sType = timerType === "session" ? "session" : "break"
-
     if (timerType === "session") {
       this.setState({
-        //session: this.state.session,
         sessionType: sType,
         sessionTimerRunning: true,
         timerPaused: false,
@@ -146,12 +139,11 @@ class App extends Component {
           sessionType: "break"
         })
         this.beepSound.play()
-        this.startBreakTimer()
+        this.startTimer("break")
       }
 
     } else if (timerType === "break") {
       this.setState({
-        //break: this.state.break,
         sessionType: sType,
         sessionTimerRunning: true,
         timerPaused: false,
@@ -167,32 +159,23 @@ class App extends Component {
           sessionType: "session"
         })
         this.beepSound.play()
-        this.startSessionTimer()
+        this.startTimer("session")
       }
     }
   }
 
-  startSessionTimer = () => {
+  startTimer(t) {
+    var countdown = this.state.session;
     let intervalId = setInterval(() => {
-      this.countDown("session")
-      this.runTimer("session")
+      this.countDown(t)
+      this.runTimer(t)
     }, 1000)
     this.setState({
       intervalId: intervalId
     })
   }
 
-  startBreakTimer() {
-    let intervalId = setInterval(() => {
-      this.countDown("break")
-      this.runTimer("break")
-    }, 1000)
-    this.setState({
-      intervalId: intervalId
-    })
-  }
-
-  pauseSessionTimer() {
+  pauseTimer() {
     this.setState(prevState => {
       return {
         sessionTimerRunning: false,
@@ -201,54 +184,63 @@ class App extends Component {
     })
     clearInterval(this.state.intervalId)
   }
-
-
-  pauseBreakTimer() {
-    this.setState(prevState => {
-      return {
-        sessionTimerRunning: false,
-        timerPaused: true
-      }
-    })
-    clearInterval(this.state.intervalId)
-  }
-
 
   render() {
     return (
       <div id="wrapper">
-        <h1><i className="far fa-clock" />Pomodoro Clock</h1>
+        <section className="container-social">
+          <div className="text-right">
+            <ul className="social-list">
+              <li>
+                <a href="https://www.linkedin.com/in/sonyacooley/" title="linkedin" target="blank"><i
+                  className="fa fa-linkedin"></i></a>
+              </li>
+              <li>
+                <a href="https://github.com/Sonnerz" title="github" target="blank"><i className="fa fa-github-square"></i></a>
+              </li>
+              <li>
+                <a href="https://www.freecodecamp.org/sonnerz" title="free code camp" target="blank"><i
+                  className="fa fa-free-code-camp"></i></a>
+              </li>
+              <li>
+                <a href="https://sonnerz.github.io" title="portfolio" target="blank"><i class="fa fa-briefcase" aria-hidden="true"></i></a>
+              </li>
+            </ul>
+          </div>
+        </section>
+        <h1>Pomodoro Clock</h1>
         <div id="app-container">
-          <div id="break-component">
-            <Break
-              onIncrement={this.handleIncrementClick}
-              onDecrement={this.handleDecrementClick}
-              break={this.state.userSetBreak}
-              type={"break"}
-              sessionRunning={this.state.sessionTimerRunning}
-              sessionType={this.state.sessionType}
-            />
-          </div>
-          <div id="session-component">
-            <Session
-              onIncrement={this.handleIncrementClick}
-              onDecrement={this.handleDecrementClick}
-              session={this.state.userSetSession}
-              type={"session"}
-              sessionRunning={this.state.sessionTimerRunning}
-              sessionType={this.state.sessionType}
-            />
-          </div>
-          <div id="timer-component">
-            <div id="timer-label">
-              {this.state.sessionType === "session" ? "Session" : "Break"}
+          <div className="length-controls">
+            <div id="break-component">
+              <ControlMinutes
+                onIncrement={this.handleIncrementClick}
+                onDecrement={this.handleDecrementClick}
+                session={this.state.userSetBreak}
+                type={"break"}
+                sessionRunning={this.state.sessionTimerRunning}
+                sessionType={this.state.sessionType} />
             </div>
+            <div id="session-component">
+              <ControlMinutes
+                onIncrement={this.handleIncrementClick}
+                onDecrement={this.handleDecrementClick}
+                session={this.state.userSetSession}
+                type={"session"}
+                sessionRunning={this.state.sessionTimerRunning}
+                sessionType={this.state.sessionType} />
+            </div>
+          </div>
+
+          <div id="timer-component">
             <div id="timer-clock">
               <Timer
                 userSession={this.state.session}
                 userBreak={this.state.break}
                 sessionType={this.state.sessionType}
               />
+            </div>
+            <div id="timer-label">
+              {this.state.sessionType === "session" ? "Session" : "Break"}
             </div>
           </div>
           <div id="controls-component">
@@ -257,15 +249,11 @@ class App extends Component {
               paused={this.state.timerPaused}
               sessionType={this.state.sessionType} />
           </div>
-          <div>
-            running: {this.state.sessionTimerRunning ? "RUNNING" : "NOT RUNNING"} <br /><br />
-            paused: {this.state.timerPaused ? "PAUSED" : "NOT PAUSED"} <br /><br />
-            Break: {this.state.break}<br /><br />
-            Session:{this.state.session}
-          </div>
           <audio id="beep" preload="auto"
             src="https://goo.gl/65cBl1"
             ref={(audio) => { this.beepSound = audio; }} />
+
+
         </div>
       </div>
     );

@@ -1,22 +1,197 @@
-.App {
+@import url('https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700,800&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+html {
+  background: yellow;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+#root {
+  background: linear-gradient(rgba(255, 16, 16, 0.692), rgba(252, 214, 3, 0.788)), url("assets/tomato.png") no-repeat;
+  background-attachment: fixed;
+  background-position: bottom right;
+  background-size: 55%;
+  min-height: 100%;
+  min-height: 100vh;
+}
+
+#app {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100%;
+  min-height: 100vh;
+  padding: 30px;
+}
+
+.container-social {
+  background-color: #333;
+  width: 100%;
+  padding: 5px 30px 5px 0px;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.social-list li {
+  transition: 0.2s linear;
+  -webkit-transition: 0.2s linear;
+  -moz-transition: 0.2s linear;
+  opacity: 1.0;
+  display: inline-block;
+  margin: 0;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.social-list li a {
+  margin-right: 25px;
+}
+
+i {
+  color: #f0f1e9;
+  font-size: 2em !important;
+}
+
+i:hover {
+  color: #ffdc00;
+}
+
+h1 {
+  font-weight: 700;
+  color: rgb(24, 22, 37);
+  text-align: center;
+  padding: 10px 0;
+  font-size: 4rem;
+  font-family: 'Merriweather Sans', sans-serif;
+}
+
+#app-container {
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+button {
+  font-size: 14px;
+  border-radius: 7px;
+  background-color: rgb(49, 69, 90);
+  color: rgb(241, 239, 239);
+  border: 1px solid rgb(49, 69, 90);
+  box-shadow: 2px 2px 10px -3px rgba(0, 0, 0, 0.75);
+  cursor: pointer;
+  font-weight: bold;
+  padding: 10px;
+}
+
+button:hover {
+  background-color: rgb(125, 156, 163);
+  color: rgb(49, 69, 90);
+}
+
+button:focus {
+  outline: 0;
+}
+
+.disabled {
+  pointer-events: none;
+}
+
+#timer-component {
+  margin: 0 auto;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
+#timer-label {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 30px 0;
+  font-style: italic;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+#time-left {
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 5rem;
+}
+
+.length-controls,
+.length-control {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  width: 100%;
+  padding-bottom: 20px;
 }
 
-.App-link {
-  color: #09d3ac;
+.arrow-button {
+  margin: 0 20px;
+}
+
+#break-label,
+#session-label {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 30px 0;
+  text-align: center;
+}
+
+#break-length,
+#session-length {
+  font-size: 1.1rem;
+  font-weight: 700;
+  padding: 12px 0;
+}
+
+#break-component,
+#session-component {
+  width: 50%;
+}
+
+#controls-component {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 100%;
+  margin-bottom: 50px;
+}
+
+#controls-component button {
+  margin: 0 30px;
+}
+
+#start_stop,
+#reset {
+  width: 100px;
+}
+
+#start_stop:hover,
+#reset:hover {
+  background-color: red;
+  color: red
+}
+
+#session-decrement i:hover,
+#break-increment i:hover,
+#session-increment i:hover,
+#break-decrement i:hover {
+  color: red;
+}
+
+
+
+@media (min-width: 576px) {
+
+  #break-component,
+  #session-component {
+    width: 33%;
+
+  }
 }
